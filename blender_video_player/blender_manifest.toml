@@ -1,0 +1,33 @@
+schema_version = "1.0.0"
+
+id = "blender_video_player"
+version = "1.4.0"
+name = "Video Player (internet + local)"
+tagline = "Watch internet or local videos inside Blender, with audio"
+maintainer = "maldades <alburton.snowboards@gmail.com>"
+type = "add-on"
+
+tags = ["Sequencer", "Import-Export"]
+
+blender_version_min = "4.2.0"
+
+# GPL: the add-on uses Blender's API (bpy) and bundles yt-dlp (Unlicense).
+license = ["SPDX:GPL-3.0-or-later"]
+
+# yt-dlp is pure-Python (py3-none-any wheel), valid on any platform.
+wheels = ["./wheels/yt_dlp-2026.6.9-py3-none-any.whl"]
+
+[permissions]
+network = "Download videos from the internet with yt-dlp"
+files = "Read local video files and save downloads"
+
+[build]
+paths_exclude_pattern = [
+    "__pycache__/",
+    "/_deps/",
+    "/tests/",
+    "*.pyc",
+    ".pytest_cache/",
+    "/README.md",
+    "/.gitignore",
+]
